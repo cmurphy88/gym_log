@@ -3,11 +3,11 @@ This is a small web appilication that can be used to track gym progress and for 
 This application can be used to create workout with ease for the user to use during a workout quikcly and effectively
 
 # Domain Model
-``mermaid
+```mermaid
     graph TD
     A[user]
     A --- D
     B[set] --- C[exercise]
     C --- D[workout]
 
-``
+```
