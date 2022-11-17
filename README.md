@@ -12,7 +12,7 @@ This application can be used to create workout with ease for the user to use dur
 
 ```
 #ERD
-```
+```mermaid
 %%{init: {'theme': 'forest', 'themeVariables': { 'lineColor': 'white'}}}%%
 erDiagram
 USER {
