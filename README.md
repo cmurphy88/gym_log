@@ -11,3 +11,44 @@ This application can be used to create workout with ease for the user to use dur
     C --- D[workout]
 
 ```
+#ERD
+```
+%%{init: {'theme': 'forest', 'themeVariables': { 'lineColor': 'white'}}}%%
+erDiagram
+USER {
+    int id PK
+    string first_name
+    string last_name
+    string email
+    string password
+}
+
+WORKOUT {
+    int id PK
+    string name
+    int user_id FK
+}
+
+WORKOUT_EXERCISE {
+    int id PK
+    int workout_id FK
+    int exercise_id FK
+}
+
+EXERCISE {
+    int id PK
+    string name
+}
+
+SET {
+    int id PK
+    double weight
+    int reps
+    int exercise_id FK
+}
+
+USER ||--|{ WORKOUT : has
+WORKOUT }|--|{ WORKOUT_EXERCISE : has
+WORKOUT_EXERCISE }|--|{ EXERCISE : has
+EXERCISE ||--|{ SET : has
+```
