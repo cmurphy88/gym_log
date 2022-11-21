@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import BaseModel
 
 
@@ -11,3 +13,11 @@ class DisplayExercise(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class UpdateExercise(BaseModel):
+    id: Optional[int]
+    name: Optional[str]
+
+    class Config:
+        orm_mode: True
