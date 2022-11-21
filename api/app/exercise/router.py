@@ -5,7 +5,7 @@ from .. import db
 from . import schema
 from . import services
 
-router = APIRouter(tags=['Exercise'], prefix='/exercise')
+router = APIRouter(tags=['Exercise'], prefix='/exercises')
 
 
 @router.post('/new', status_code=status.HTTP_201_CREATED)
@@ -13,7 +13,7 @@ async def create_new_exercise(request: schema.Exercise, database: Session = Depe
     return await services.create_new_exercise(request, database)
 
 
-@router.get('/exercises', response_model=List[schema.DisplayExercise])
+@router.get('/all', response_model=List[schema.DisplayExercise])
 async def get_all_exercises(database: Session = Depends(db.get_db)):
     return await services.get_all_exercises(database)
 
