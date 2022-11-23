@@ -23,6 +23,11 @@ async def get_workout_by_id(workout_id: int, database: Session = Depends(db.get_
     return await services.get_workout_by_id(workout_id, database)
 
 
+@router.get('/users/{id}', response_model=List[schema.DisplayWorkout])
+async def get_all_users_workouts(user_id: int, database: Session = Depends(db.get_db)):
+    return await services.get_all_users_workouts(user_id, database)
+
+
 # @router.put('/{id}', status_code=status.HTTP_202_ACCEPTED)
 # async def update_exercise(request: schema.UpdateExercise, database: Session = Depends(db.get_db)):
 #     return await services.update_exercise(request, database)

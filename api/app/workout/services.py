@@ -16,9 +16,19 @@ async def get_all_workouts(database) -> List[models.Workout]:
     return workouts
 
 
-async def get_workout_by_id(workout_id, database):
-    return None
+async def get_workout_by_id(workout_id, database) -> models.Workout:
+    workout = database.query(models.Workout).get(workout_id)
+    return workout
+
+
+async def get_all_users_workouts(user_id, database) -> List[models.Workout]:
+    workouts = database.query(models.Workout).filter(models.Workout.user_id == user_id)
+    workout_list = list()
+    for x in workouts:
+        workout_list.append(x)
+    return workout_list
 
 
 async def delete_workout(workout_id, database):
-    return None
+    database.query(models.Workout).filter(models.Workout.id == workout_id)
+    database.commit()

@@ -4,6 +4,7 @@ from .auth import router as auth_router
 from .users import router as user_router
 from .exercise import router as exercise_router
 from .workout import router as workout_router
+from .set import router as set_router
 
 
 app = FastAPI(title="GYMLOGWebApp",
@@ -32,4 +33,4 @@ app.include_router(auth_router.router)
 app.include_router(user_router.router)
 app.include_router(exercise_router.router)
 app.include_router(workout_router.router)
-# app.include_router(auth_router.router)
+app.include_router(set_router.router)

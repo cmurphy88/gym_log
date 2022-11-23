@@ -23,9 +23,14 @@ async def get_exercise(exercise_id: int, database: Session = Depends(db.get_db))
     return await services.get_exercise(exercise_id, database)
 
 
-@router.put('/{id}', status_code=status.HTTP_202_ACCEPTED)
-async def update_exercise(request: schema.UpdateExercise, database: Session = Depends(db.get_db)):
-    return await services.update_exercise(request, database)
+# @router.get('/users/{user_id}', response_model=List[schema.DisplayExercise])
+# async def get_all_users_exercises(user_id: int, database: Session = Depends(db.get_db)):
+#     return await services.get_all_users_exercises(user_id, database)
+
+
+# @router.put('/{id}', status_code=status.HTTP_202_ACCEPTED)
+# async def update_exercise(request: schema.UpdateExercise, database: Session = Depends(db.get_db)):
+#     return await services.update_exercise(request, database)
 
 
 @router.delete('/{id}', status_code=status.HTTP_200_OK, response_class=Response)

@@ -21,6 +21,10 @@ async def get_exercise(exercise_id, database) -> models.Exercise:
     return exercise
 
 
+# async def get_all_users_exercises(user_id, database) -> List[models.Exercise]:
+#     exercises = database.query
+
+
 # async def update_exercise(request, database) -> models.Exercise:
 #     old_exercise = database.query(models.Exercise).get(request.id)
 #     if not old_exercise:
