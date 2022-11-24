@@ -1,1 +1,1 @@
-INSERT INTO set (date) VALUES ('11/18/2022')
+UPDATE set SET date = '11/18/2022' WHERE id = 1;
