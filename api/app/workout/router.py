@@ -4,12 +4,20 @@ from sqlalchemy.orm import Session
 from .. import db
 from . import schema
 from . import services
+from . import validator
 
 router = APIRouter(tags=['Workout'], prefix='/workouts')
 
 
 @router.post('/new', status_code=status.HTTP_201_CREATED)
 async def create_new_workout(request: schema.Workout, database: Session = Depends(db.get_db)):
+    workout = await validator.verify_workout_exist(request.name, request.user_id, database)
+
+    if workout:
+        raise HTTPException(
+            status_code=400,
+            detail="There is already a workout with this name for the user"
+        )
     return await services.create_new_workout(request, database)
 
 

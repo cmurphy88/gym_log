@@ -1,5 +1,5 @@
 INSERT INTO users (first_name, last_name, email, password)
-    VALUES ('Conor', 'Murphy', 'conor@g.com', 'password');
+    VALUES ('Conor', 'Murphy', 'conor@g.com', '$argon2id$v=19$m=65536,t=3,p=4$ZixlbE3pfa9VylmrVaq1Ng$Hdn4GZi8xj0Lu5DJOF8m8RtCOuFk0IWfx9rzDQABBnk');
 
 INSERT INTO workout (name, user_id)
     VALUES ('Chest', 1);
