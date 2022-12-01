@@ -22,5 +22,5 @@ async def get_set_by_id(set_id, database) -> models.Set:
 
 
 async def delete_set(set_id, database):
-    database.query(models.Set).filter(models.Set.id == set_id)
+    database.query(models.Set).filter(models.Set.id == set_id).delete()
     database.commit()

@@ -14,3 +14,8 @@ class DisplayWorkout(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class WorkoutExercise(BaseModel):
+    workout_id: int
+    exercise_id: int

@@ -1,6 +1,7 @@
 from typing import List, Optional
 from fastapi import HTTPException, status
 from . import models
+from ..workout.models import WorkoutExercise
 
 
 async def create_new_exercise(request, database) -> models.Exercise:
@@ -9,6 +10,14 @@ async def create_new_exercise(request, database) -> models.Exercise:
     database.commit()
     database.refresh(new_exercise)
     return new_exercise
+
+
+async def add_exercise_to_workout(request, database) -> WorkoutExercise:
+    new_exercise_workout = WorkoutExercise(workout_id=request.workout_id, exercise_id=request.exercise_id)
+    database.add(new_exercise_workout)
+    database.commit()
+    database.refresh(new_exercise_workout)
+    return new_exercise_workout
 
 
 async def get_all_exercises(database) -> List[models.Exercise]:
@@ -33,6 +42,12 @@ async def get_exercise(exercise_id, database) -> models.Exercise:
 # try and do a delete, and create a new exercise???
 
 
+async def delete_exercise_from_workout(request, database):
+    database.query(WorkoutExercise).filter(WorkoutExercise.workout_id == request.workout_id,
+                                           WorkoutExercise.exercise_id == request.exercise_id).delete()
+    database.commit()
+
+
 async def delete_exercise(exercise_id, database):
-    database.query(models.Exercise).filter(models.Exercise.id == exercise_id)
+    database.query(models.Exercise).filter(models.Exercise.id == exercise_id).delete()
     database.commit()

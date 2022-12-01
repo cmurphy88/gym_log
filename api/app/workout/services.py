@@ -30,5 +30,5 @@ async def get_all_users_workouts(user_id, database) -> List[models.Workout]:
 
 
 async def delete_workout(workout_id, database):
-    database.query(models.Workout).filter(models.Workout.id == workout_id)
+    database.query(models.Workout).filter(models.Workout.id == workout_id).delete()
     database.commit()

@@ -22,7 +22,6 @@ class WorkoutExercise(Base):
     workout_id = Column(Integer)
     exercise_id = Column(Integer)
 
-    def __init__(self, name, workout_id, exercise_id, *args, **kwargs):
-        self.name = name
+    def __init__(self, workout_id, exercise_id, *args, **kwargs):
         self.workout_id = workout_id
         self.exercise_id = exercise_id
