@@ -3,7 +3,6 @@ from fastapi import HTTPException, status
 from . import models
 from ..workout.models import WorkoutExercise
 
-
 async def create_new_exercise(request, database) -> models.Exercise:
     new_exercise = models.Exercise(name=request.name)
     database.add(new_exercise)
@@ -28,6 +27,16 @@ async def get_all_exercises(database) -> List[models.Exercise]:
 async def get_exercise(exercise_id, database) -> models.Exercise:
     exercise = database.query(models.Exercise).get(exercise_id)
     return exercise
+
+
+async def get_all_workout_exercises(workout_id, database) -> List[models.Exercise]:
+    exercises = database.query(WorkoutExercise).filter(WorkoutExercise.workout_id == workout_id)
+    exercise_list = list()
+    for x in exercises:
+        exercise_id = x.exercise_id
+        exercise_list.append(database.query(models.Exercise).get(exercise_id))
+
+    return exercise_list
 
 
 # async def get_all_users_exercises(user_id, database) -> List[models.Exercise]:
