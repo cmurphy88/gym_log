@@ -1,6 +1,8 @@
 from typing import List, Optional
 from fastapi import HTTPException, status
 from . import models
+from ..exercise.models import Exercise
+from ..workout.models import WorkoutExercise
 
 
 async def create_new_set(request, database) -> models.Set:
@@ -19,6 +21,31 @@ async def get_all_sets(database) -> List[models.Set]:
 async def get_set_by_id(set_id, database) -> models.Set:
     set = database.query(models.Set).get(set_id)
     return set
+
+
+async def get_all_exercise_sets(exercise_id, database) -> List[models.Set]:
+    sets = database.query(models.Set).filter(models.Set.exercise_id == exercise_id)
+    sets_list = list()
+    for x in sets:
+        sets_list.append(x)
+    return sets_list
+
+
+async def get_all_workout_sets(workout_id, database) -> List[models.Set]:
+    exercises = database.query(WorkoutExercise).filter(WorkoutExercise.workout_id == workout_id)
+    exercise_list = list()
+    sets_list = list()
+    for x in exercises:
+        exercise_id = x.exercise_id
+        exercise_list.append(database.query(models.Set).get(exercise_id))
+
+    for x in exercise_list:
+        exercise_id = x.exercise_id
+        sets = database.query(models.Set).filter(models.Set.exercise_id == exercise_id)
+
+        for y in sets:
+            sets_list.append(y)
+    return sets_list
 
 
 async def delete_set(set_id, database):

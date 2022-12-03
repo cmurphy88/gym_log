@@ -23,6 +23,16 @@ async def get_set_by_id(set_id: int, database: Session = Depends(db.get_db)):
     return await services.get_set_by_id(set_id, database)
 
 
+@router.get('/exercise/{exercise_id}', response_model=List[schema.DisplaySet])
+async def get_all_exercise_sets(exercise_id: int, database: Session = Depends(db.get_db)):
+    return await services.get_all_exercise_sets(exercise_id, database)
+
+
+@router.get('/workout/{workout_id}', response_model=List[schema.DisplaySet])
+async def get_all_workout_sets(workout_id: int, database: Session = Depends(db.get_db)):
+    return await services.get_all_workout_sets(workout_id, database)
+
+
 # @router.get('/users/{id}', response_model=List[schema.DisplaySet])
 # async def get_all_users_sets(user_id: int, database: Session = Depends(db.get_db)):
 #     return await services.get_all_users_sets(user_id, database)
