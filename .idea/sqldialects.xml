@@ -2,8 +2,8 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/migrations/base/V1.0__init_schema.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/migrations/base/V3.0__update_schema.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/migrations/seed/V2.0__mock_data.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/migrations/seed/V4.0__mock_data_update.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/migrations/base/V1.2__update_schema.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/migrations/seed/V1.1__mock_data.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/migrations/seed/V1.3__mock_data_update.sql" dialect="PostgreSQL" />
   </component>
 </project>

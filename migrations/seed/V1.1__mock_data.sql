@@ -7,6 +7,12 @@ INSERT INTO workout (name, user_id)
 INSERT INTO exercise (name)
     VALUES ('Bench Press');
 
+INSERT INTO exercise (name)
+    VALUES ('Squat');
+
+INSERT INTO exercise (name)
+    VALUES ('Bicep Curl');
+
 INSERT INTO workout_exercise (workout_id, exercise_id)
     VALUES (1, 1);
 
