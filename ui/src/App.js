@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { AuthProvider } from "./provider/useAuth";
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from './routes/Routes'
+import ResponsiveAppBar from "./features/Navigation/navbar";
+
+// function InnerApp() {
+//     const { user, loading, error, login, signUp, logout } = useAuth();
+// }
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <div className="App">
+            <AuthProvider>
+            <ResponsiveAppBar />
+                <BrowserRouter>
+                    <AppRoutes />
+                </BrowserRouter>
+            </AuthProvider>
+        </div>
+    );
 }
 
 export default App;
