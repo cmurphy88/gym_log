@@ -58,8 +58,8 @@ function getAuthRoutes() {
             <Route
                 exact
                 path="/rooms/:id"
-                element={<RoomPage />}
-            /> */}
+                element={<RoomPage />} */}
+            {/* /> */}
         </Routes>
     )
 }

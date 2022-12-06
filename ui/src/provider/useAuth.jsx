@@ -6,7 +6,7 @@ import React, {
     useState,
     useCallback
 } from "react";
-import * as sessionsApi from "./auth.jsx";
+import * as sessionsApi from "./auth";
 import * as usersApi from "../shared/api/usersAPI";
 import storage from "../utils/storage"
 
