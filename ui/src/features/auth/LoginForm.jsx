@@ -17,7 +17,7 @@ function LoginForm({ openRegister }) {
     return (
         <>
             <div>
-                <h1>JARVIS</h1>
+                <h1>GYM_LOG</h1>
                 <Controller
                     name="username"
                     control={control}
