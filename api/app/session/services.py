@@ -9,3 +9,8 @@ async def create_new_session(request, database) -> models.Session:
     database.commit()
     database.refresh(new_session)
     return new_session
+
+
+async def get_all_sessions(database) -> List[models.Set]:
+    sessions = database.query(models.Session).all()
+    return sessions
