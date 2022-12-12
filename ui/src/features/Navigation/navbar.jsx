@@ -14,10 +14,11 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import useAuth from "../../provider/useAuth";
 
-const pages = ['Home'];
+const pages = ['home'];
 
 const ResponsiveAppBar = () => {
   const { user, logout } = useAuth()
+  const handleLogout = () => logout();
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -57,7 +58,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            JARVIS
+            GYMLOG
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -113,7 +114,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            JARVIS
+            GYMLOG
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {user && pages.map((page) => (
@@ -150,7 +151,7 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem key={"Logout"} onClick={() => logout()}>
+              <MenuItem key={"Logout"} onClick={() => handleLogout()}>
                 <Typography textAlign="center">{"Logout"}</Typography>
               </MenuItem>
             </Menu>)}
