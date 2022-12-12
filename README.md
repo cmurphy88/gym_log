@@ -45,10 +45,17 @@ SET {
     double weight
     int reps
     int exercise_id FK
+    int session_id FK
+}
+
+SESSION {
+    int id PK
+    date date 
 }
 
 USER ||--|{ WORKOUT : has
 WORKOUT }|--|{ WORKOUT_EXERCISE : has
 WORKOUT_EXERCISE }|--|{ EXERCISE : has
 EXERCISE ||--|{ SET : has
+SESSION }|--|| SET : contains
 ```
