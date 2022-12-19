@@ -34,9 +34,9 @@ export default function WorkoutAccordian({ workout }) {
                 <Typography> {workout.name} </Typography>
             </AccordionSummary>
             <AccordionDetails>
-                {exercises && exercises.map((r, i) => {
-                    return <ListItemButton key={i} onClick={() => navigate(`/rooms/${r.id}`)}>
-                        <ListItemText primary={r.name}>{r.name}</ListItemText>
+                {exercises && exercises.map((e, i) => {
+                    return <ListItemButton key={i} onClick={() => navigate(`/exercises/${e.id}/history`)}>
+                        <ListItemText primary={e.name}>{e.name}</ListItemText>
                     </ListItemButton>
                 })}
             </AccordionDetails>

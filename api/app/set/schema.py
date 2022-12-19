@@ -8,7 +8,6 @@ class Set(BaseModel):
     weight: float
     reps: int
     exercise_id: int
-    date: Date
 
 
 class DisplaySet(BaseModel):
@@ -16,7 +15,6 @@ class DisplaySet(BaseModel):
     weight: float
     reps: int
     exercise_id: int
-    date: Date
 
     class Config:
         orm_mode = True

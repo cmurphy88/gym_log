@@ -7,6 +7,8 @@ import useAuth from "../provider/useAuth";
 import { HomePage } from "../features/Home";
 import { LoginForm } from "../features/auth";
 import { WorkoutPage } from "../features/Workout"
+import { SessionPage } from "../features/Session"
+import { History } from "../features/History"
 // import { RoomPage } from "../features/Room/room";
 // import { JoinHome } from "../features/Home/JoinHome";
 // import CreateHome from "../features/Home/CreateHome";
@@ -35,6 +37,16 @@ function getAuthRoutes() {
                 exact
                 path="/workouts"
                 element={<WorkoutPage />}
+            />
+            <Route
+                exact
+                path="/session"
+                element={<SessionPage />} 
+            />
+            <Route
+                exact
+                path="exercises/:id/history"
+                element={<History />} 
             />
             {/* <Route
                 exact

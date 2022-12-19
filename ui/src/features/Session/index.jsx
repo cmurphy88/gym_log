@@ -5,7 +5,7 @@ import { Container } from "@mui/system";
 import useAuth from "../../provider/useAuth";
 import Button from "@mui/material/Button";
 
-function HomePage() {
+function SessionPage() {
   const { user } = useAuth()
 //   const [homes, setHomes] = useState()
 //   const [ setDisplayModal] = React.useState(false);
@@ -46,4 +46,4 @@ function HomePage() {
   );
 }
 
-export { HomePage };
+export { SessionPage };

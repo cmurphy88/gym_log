@@ -12,7 +12,6 @@ function WorkoutPage() {
     useEffect(() => {
         const fetchWorkouts = async () => {
             const data = await getUsersWorkouts(user.id);
-            console.log("User_ID : ", user.id)
             setWorkouts(data);
         }
         fetchWorkouts()
@@ -22,7 +21,6 @@ function WorkoutPage() {
     return (
       <div className="App">
         <Container maxWidth='md'>
-            {console.log(workouts)}
           <Box sx={{ boxShadow: 3, p: 2 }}>
             <h2>Workouts</h2>
             <Container>
