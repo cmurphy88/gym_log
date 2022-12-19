@@ -31,7 +31,7 @@ async def get_workout_by_id(workout_id: int, database: Session = Depends(db.get_
     return await services.get_workout_by_id(workout_id, database)
 
 
-@router.get('/users/{id}', response_model=List[schema.DisplayWorkout])
+@router.get('/user/{user_id}', response_model=List[schema.DisplayWorkout])
 async def get_all_users_workouts(user_id: int, database: Session = Depends(db.get_db)):
     return await services.get_all_users_workouts(user_id, database)
 

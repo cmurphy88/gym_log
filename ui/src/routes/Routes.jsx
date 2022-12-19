@@ -4,8 +4,9 @@ import {
     Navigate
 } from "react-router-dom";
 import useAuth from "../provider/useAuth";
-// import { HomePage } from "../features/Home";
+import { HomePage } from "../features/Home";
 import { LoginForm } from "../features/auth";
+import { WorkoutPage } from "../features/Workout"
 // import { RoomPage } from "../features/Room/room";
 // import { JoinHome } from "../features/Home/JoinHome";
 // import CreateHome from "../features/Home/CreateHome";
@@ -25,12 +26,17 @@ function getAuthRoutes() {
                 path="/"
                 element={<Navigate to="/home" replace />}
             />
-            {/* <Route
+            <Route
                 exact
                 path="/home"
                 element={<HomePage />}
             />
             <Route
+                exact
+                path="/workouts"
+                element={<WorkoutPage />}
+            />
+            {/* <Route
                 exact
                 path="/room"
                 element={<RoomPage />}

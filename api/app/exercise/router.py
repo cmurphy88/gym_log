@@ -29,7 +29,7 @@ async def get_exercise(exercise_id: int, database: Session = Depends(db.get_db))
     return await services.get_exercise(exercise_id, database)
 
 
-@router.get('/{id}/exercises', response_model=List[schema.DisplayExercise])
+@router.get('/{workout_id}/exercises', response_model=List[schema.DisplayExercise])
 async def get_all_workout_exercises(workout_id: int, database: Session = Depends(db.get_db)):
     return await services.get_all_workout_exercises(workout_id, database)
 
