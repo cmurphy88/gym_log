@@ -4,24 +4,25 @@ import { Box } from "@mui/material";
 import { Container } from "@mui/system";
 import useAuth from "../../provider/useAuth";
 import Button from "@mui/material/Button";
+import { WorkoutPage } from "../Workout";
 
 function HomePage() {
   const { user } = useAuth()
-//   const [homes, setHomes] = useState()
-//   const [ setDisplayModal] = React.useState(false);
+  //   const [homes, setHomes] = useState()
+  //   const [ setDisplayModal] = React.useState(false);
 
-//   useEffect(() => {
-//     // declare the data fetching function
-//     const fetchHomes = async () => {
-//       const data = await getUsersHomes(user.id);
-//       setHomes(data)
-//     }
+  //   useEffect(() => {
+  //     // declare the data fetching function
+  //     const fetchHomes = async () => {
+  //       const data = await getUsersHomes(user.id);
+  //       setHomes(data)
+  //     }
 
-//     // call the function
-//     fetchHomes()
-//       // make sure to catch any error
-//       .catch(console.error);
-//   }, [user])
+  //     // call the function
+  //     fetchHomes()
+  //       // make sure to catch any error
+  //       .catch(console.error);
+  //   }, [user])
 
   return (
     <div className="App">
@@ -29,17 +30,20 @@ function HomePage() {
         maxWidth='md'
       >
         <Box sx={{ boxShadow: 3, p: 2 }}>
-            <Box>
-                <h1>Welcome {user.first_name}</h1>
-            </Box>
-            <Box>
-                <Button 
-                    variant="contained"
-                    color="success"
-                    href="/workouts">
-                        Start new Session
-                </Button>
-            </Box>
+          <Box>
+            <h1>Welcome {user.first_name}</h1>
+          </Box>
+          <Box>
+            <WorkoutPage />
+          </Box>
+          <Box sx={{ p: 2 }}>
+            <Button
+              variant="contained"
+              color="success"
+              href="/workouts">
+              Start new Session
+            </Button>
+          </Box>
         </Box>
       </Container>
     </div>
