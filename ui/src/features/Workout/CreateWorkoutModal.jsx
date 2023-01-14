@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Controller, useForm } from 'react-hook-form';
-import { Alert, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { createNewWorkout } from '../../shared/api/WorkoutAPI';
 import useAuth from '../../provider/useAuth';
 

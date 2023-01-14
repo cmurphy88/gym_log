@@ -14,3 +14,8 @@ async def create_new_session(request, database) -> models.Session:
 async def get_all_sessions(database) -> List[models.Session]:
     sessions = database.query(models.Session).all()
     return sessions
+
+
+async def get_session_by_id(session_id, database) -> models.Session:
+    session = database.query(models.Session).get(session_id)
+    return session

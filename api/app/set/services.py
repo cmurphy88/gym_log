@@ -3,6 +3,7 @@ from fastapi import HTTPException, status
 from . import models
 from ..exercise.models import Exercise
 from ..workout.models import WorkoutExercise
+from ..session.models import Session
 
 
 async def create_new_set(request, database) -> models.Set:
@@ -46,6 +47,10 @@ async def get_all_workout_sets(workout_id, database) -> List[models.Set]:
         for y in sets:
             sets_list.append(y)
     return sets_list
+
+
+# async def get_set_date(session_id, database) -> List[Session]:
+
 
 
 async def delete_set(set_id, database):
