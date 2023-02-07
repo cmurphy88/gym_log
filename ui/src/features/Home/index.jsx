@@ -5,9 +5,13 @@ import { Container } from "@mui/system";
 import useAuth from "../../provider/useAuth";
 import Button from "@mui/material/Button";
 import { WorkoutPage } from "../Workout";
+import { useState } from "react";
 
 function HomePage() {
+  const [open, setOpen] = useState(false);
+
   const { user } = useAuth()
+  const handleOpen = () => setOpen(true);
   //   const [homes, setHomes] = useState()
   //   const [ setDisplayModal] = React.useState(false);
 
@@ -40,8 +44,9 @@ function HomePage() {
             <Button
               variant="contained"
               color="success"
-              href="/workouts">
-              Start new Session
+              onClick={{ handleOpen }}
+            >
+              start new session
             </Button>
           </Box>
         </Box>

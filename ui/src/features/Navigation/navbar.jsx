@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import useAuth from "../../provider/useAuth";
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 
-const pages = ['home'];
+const pages = ['dashboard'];
 
 const ResponsiveAppBar = () => {
   const { user, logout } = useAuth()
@@ -48,7 +48,7 @@ const ResponsiveAppBar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/home"
+            href="/dashboard"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },

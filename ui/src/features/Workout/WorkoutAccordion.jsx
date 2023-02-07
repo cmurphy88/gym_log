@@ -4,7 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { ListItemButton, ListItemText } from '@mui/material';
+import { Button, ListItemButton, ListItemText } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { getWorkoutExercises } from '../../shared/api/ExerciseAPI';
 
@@ -39,6 +39,10 @@ export default function WorkoutAccordian({ workout }) {
                         <ListItemText primary={e.name}>{e.name}</ListItemText>
                     </ListItemButton>
                 })}
+                <Button
+                    href="/workouts">
+                    add exercise
+                </Button>
             </AccordionDetails>
 
         </Accordion>

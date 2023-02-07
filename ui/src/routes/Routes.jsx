@@ -26,11 +26,11 @@ function getAuthRoutes() {
             <Route
                 exact
                 path="/"
-                element={<Navigate to="/home" replace />}
+                element={<Navigate to="/dashboard" replace />}
             />
             <Route
                 exact
-                path="/home"
+                path="/dashboard"
                 element={<HomePage />}
             />
             <Route
@@ -41,12 +41,12 @@ function getAuthRoutes() {
             <Route
                 exact
                 path="/session"
-                element={<SessionPage />} 
+                element={<SessionPage />}
             />
             <Route
                 exact
                 path="exercises/:id/history"
-                element={<History />} 
+                element={<History />}
             />
             {/* <Route
                 exact
