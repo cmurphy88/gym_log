@@ -33,9 +33,9 @@ async def get_all_workout_sets(workout_id: int, database: Session = Depends(db.g
     return await services.get_all_workout_sets(workout_id, database)
 
 
-@router.get('/date/{session_id}', response_model=List[schema.SetDate])
-async def get_set_date(session_id: int, database: Session = Depends(db.get_db)):
-    return await services.get_set_date(session_id, database)
+@router.get('/date/{exercise_id}', response_model=List[schema.SetWithDate])
+async def get_set_date(exercise_id: int, database: Session = Depends(db.get_db)):
+    return await services.get_set_date(exercise_id, database)
 
 
 # @router.get('/users/{id}', response_model=List[schema.DisplaySet])

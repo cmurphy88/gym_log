@@ -12,6 +12,7 @@ function HomePage() {
 
   const { user } = useAuth()
   const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   //   const [homes, setHomes] = useState()
   //   const [ setDisplayModal] = React.useState(false);
 

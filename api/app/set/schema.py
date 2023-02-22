@@ -18,7 +18,9 @@ class DisplaySet(BaseModel):
         orm_mode = True
 
 
-class SetDate(BaseModel):
+class SetWithDate(BaseModel):
+    weight: float
+    reps: int
     date: Date
 
     class Config:

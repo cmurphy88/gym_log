@@ -1,8 +1,7 @@
-from typing import List, Optional
-from fastapi import HTTPException, status
+from typing import List
 from . import models
-from ..exercise.models import Exercise
 from ..workout.models import WorkoutExercise
+from .schema import SetWithDate
 from ..session.models import Session
 
 
@@ -49,8 +48,27 @@ async def get_all_workout_sets(workout_id, database) -> List[models.Set]:
     return sets_list
 
 
-# async def get_set_date(session_id, database) -> List[Session]:
+async def get_set_date(exercise_id, database) -> List[SetWithDate]:
+    sets_list = list()
+    sets_date_list = list()
+    session_list = list()
+    sets = database.query(models.Set).filter(models.Set.exercise_id == exercise_id)
+    for x in sets:
+        sets_list.append(x)
 
+    for x in sets_list:
+        session = database.query(Session).filter(Session.id == int(x.session_id))
+        for y in session:
+            session_list.append(y)
+        date = session_list[0].date
+        set_with_date = SetWithDate(
+            weight=x.weight,
+            reps=x.weight,
+            date=date
+        )
+        sets_date_list.append(set_with_date)
+
+    return sets_date_list
 
 
 async def delete_set(set_id, database):

@@ -14,12 +14,11 @@ function History() {
 
   useEffect(() => {
     const retrieveExercise = async () => {
-      console.log("HERE now : ", id)
       const data = await getExercise(id);
       setExercise(data);
     };
     retrieveExercise()
-    .catch(console.error);
+      .catch(console.error);
   }, [id]);
 
   useEffect(() => {
@@ -31,7 +30,7 @@ function History() {
       .catch(console.error);
   }, [id]);
 
-  if (!exercise){
+  if (!exercise) {
     return
   }
 
@@ -40,7 +39,7 @@ function History() {
       <Container maxWidth='md'>
         <Box sx={{ boxShadow: 3, p: 2 }}>
           <h1>History for {exercise.name}</h1>
-          <HistoryTable 
+          <HistoryTable
             sets={sets}
           />
         </Box>

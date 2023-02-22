@@ -7,11 +7,14 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Button, ListItemButton, ListItemText } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { getWorkoutExercises } from '../../shared/api/ExerciseAPI';
+import AddExerciseModal from '../Exercise/AddExerciseModal';
 
 
 
 export default function WorkoutAccordian({ workout }) {
     const [exercises, setExercises] = useState()
+    const [open, setOpen] = useState(false);
+    const [displayModal, setDisplayModal] = useState(false);
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -39,10 +42,12 @@ export default function WorkoutAccordian({ workout }) {
                         <ListItemText primary={e.name}>{e.name}</ListItemText>
                     </ListItemButton>
                 })}
-                <Button
-                    href="/workouts">
-                    add exercise
-                </Button>
+                <AddExerciseModal
+                    isOpen={displayModal}
+                    handleClose={() => {
+                        setDisplayModal(false);
+                    }}
+                />
             </AccordionDetails>
 
         </Accordion>
